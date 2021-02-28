@@ -17,11 +17,21 @@
             console.log("Perdimos al servidor")
         })
 
-        socket.emit('mensaje',{nombre:'Fernando'});
+        //socket.emit('mensaje',{nombre:'Fernando'});
+
+        socket.on('active-bands',function(bands){
+            console.clear();
+            console.table(bands);
+        });
 
         socket.on('mensaje',function(payload){
             console.log("escuchando:",payload);
         });
+
+        socket.on('nuevo-mensaje',function(payload){
+            console.log("escuchando nuevo:",payload);
+        });
+
     </script>
 </body>
 </html>
